@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+<title>见缝插针小游戏</title>
+<style>
+* {
+	padding:0;
+	margin:0;
+}
+body, html {
+	height:100%;
+}
+body {
+	background:url(img/12.jpg) no-repeat center center;
+}
+.container {
+	width:300px;
+	margin:50px auto;
+}
+h2{
+    font-family:微软雅黑;
+    color: white;
+	font-size:35px;
+	text-align:center;
+	margin-top:150px;
+	letter-spacing:7px;
+}
+h4{
+    color: white;
+    font-size:16px;
+    text-align:center;
+    margin-top:20px;
+}
+.play {
+	margin-top:20px;
+	text-align:center;
+}
+.play a {
+	display:inline-block;
+	border:3px #666 solid;
+	border-radius:15px;
+	padding:45px 25px 12px;
+	font-size:16px;
+	background:url(img/play.png) no-repeat center 14px;
+	color:#505050;
+	font-weight:bold;
+	text-decoration:none;
+}
+    button{
+        margin:19px 116px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>见缝插针小游戏</h2>
+    <h4>制作人：刘猛</h4>
+  <div class="play"> <a href="play.html" id="go">关卡<span id="level">1</span></a> </div>
+    <button>清除数据</button>
+</div>
+</body>
+<script>
+	var level = parseInt(window.location.href.split("#")[1]);
+	if(level){
+		if(level>=7||level<0){
+			level = 0;
+		}
+		document.getElementById("level").innerHTML = level+1;
+//		document.getElementById("go").setAttribute("href","play.html#"+level);
+        localStorage.setItem('level',level);
+	}
+
+	var clear=document.querySelector("button");
+	clear.onclick=function () {
+        localStorage.clear();
+        alert("游戏数据清除完毕，请重新开始游戏！");
+    }
+ </script>
+</html>
